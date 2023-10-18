@@ -15,6 +15,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // INDICA UMA COLUNA COM BANCO, COM VALOR UNICO
     @Column(unique = true)
     private String number;
 

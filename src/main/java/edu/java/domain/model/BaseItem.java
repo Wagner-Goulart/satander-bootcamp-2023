@@ -5,7 +5,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
-@MappedSuperclass
+@MappedSuperclass // GARANTE QUE É POSSÍVEL QUE OUTTROS CLASSES ESTENDAM ( EXTENDS ) DESSA CLASSE
 public abstract class BaseItem {
     
     @Id

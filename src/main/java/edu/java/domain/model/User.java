@@ -11,24 +11,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-@Entity(name = "tb_user")
+@Entity(name = "tb_user") // DEFINE UMA TABELA NO BANCO DE DADOS
 public class User {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // INDICA O ID NO BANCO
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // GERA O IDENTIFICADOR AUTOMATICAMENTE
     private Long id;
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    // INDICA RELACIONAMENTO UM PRA UM, E A PROGRAMAÇÃO ENTRE AS ENTIDADES
+    // cascade = CascadeType.ALL -> QUANDO O USUARIO É DELE A CONTA TAMBÉ É
+    @OneToOne(cascade = CascadeType.ALL) 
     private Account account;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL) // INDICA RELACIONAMENTO UM PRA UM, 
     private Card card;
 
+    // INDICA RELACIONAMENTO UM PRA MUITOS, 
+    // fetch = FetchType.EAGER -> TODA VEZ QUE BUSCA UM USUARIO NO BANCO, TRAZ TODAS AS FEATURES DELE
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feature> features;
 
+    // INDICA RELACIONAMENTO UM PRA MUITOS, 
+    // fetch = FetchType.EAGER -> TODA VEZ QUE BUSCA UM USUARIO NO BANCO, TRAZ TODAS AS FEATURES DELE
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<News> news;
 
